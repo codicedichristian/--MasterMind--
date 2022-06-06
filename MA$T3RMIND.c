@@ -40,12 +40,12 @@ main (){
     
      for(i=0; i<CodeLenght; i++)
     {
-        scanf("%d", &SecretStringColours[i]);
+        scanf("%d", &SecretStringColours[i]); //todo anche qui scanf? sei sicuro?
     }
     
     for(i=0; i<CodeLenght; i++)
     {
-        scanf("%d", &DigitatedSequence[i]);
+        scanf("%d", &DigitatedSequence[i]); //todo anche qui scanf? sei sicuro?
     }
     
     
@@ -86,7 +86,7 @@ main (){
   
    
    /*int j;
-    int N=(CodeLenght + 1); //L'idea è quella di usare un unica variabile in modo da avere la dimensione del codice inzziale uguale a quella che verrà visualizzata della sequenza digitata
+    int N=(CodeLenght + 1); //L'idea Ã¨ quella di usare un unica variabile in modo da avere la dimensione del codice inzziale uguale a quella che verrÃ  visualizzata della sequenza digitata
     char Seq;
   //algoritmo per l'output della sequenza digitata dal giocatore in input.
     printf("Inserisci il codice ");
