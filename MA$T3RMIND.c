@@ -34,7 +34,8 @@ main (){
      
     char DigitatedSequence[sizeof CodeLenght]; 
     scanf("%s", DigitatedSequence);
-    getch();
+    getch(); // getch -> tradotto significa get char = Prendi char  - ha la stessa funzione dello scanf quindi rimane in attesa di un elemento da parte dell'utente. 
+	
     
     
     
@@ -86,7 +87,7 @@ main (){
   
    
    /*int j;
-    int N=(CodeLenght + 1); //L'idea Ë quella di usare un unica variabile in modo da avere la dimensione del codice inzziale uguale a quella che verr‡ visualizzata della sequenza digitata
+    int N=(CodeLenght + 1); //L'idea √® quella di usare un unica variabile in modo da avere la dimensione del codice inzziale uguale a quella che verr√† visualizzata della sequenza digitata
     char Seq;
   //algoritmo per l'output della sequenza digitata dal giocatore in input.
     printf("Inserisci il codice ");
