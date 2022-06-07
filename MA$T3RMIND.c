@@ -34,26 +34,22 @@
 
     char DigitatedSequence[sizeof CodeLenght]; 
     scanf("%s", DigitatedSequence);
-    getch();
+   // getch();
 
 
 
-     for(i=0; i<CodeLenght; i++)
-    {
-        scanf("%c", &SecretStringColours[i]);
-    //}
-
-    //for(i=0; i<CodeLenght; i++)
+     //for(i=0; i<CodeLenght; i++)
     //{
-        scanf("%c", &DigitatedSequence[i]);
-    }
+        //scanf("%c", &SecretStringColours[i]); 
+		//scanf("%c", &DigitatedSequence[i]);
+   // }
 
 
     int ComparingVariable=0;
 
 	for(i = 0; i < CodeLenght; i++)
     {
-        printf("Confronto n* %d",i);
+        printf("Confronto n* %d\n",i);
 		for(j=0; j<CodeLenght; j++) 
         {
             if(SecretStringColours[i] == DigitatedSequence[j])
@@ -64,14 +60,41 @@
             }
         }
     }
-    if(ComparingVariable == CodeLenght)
+    if(ComparingVariable == CodeLenght + 1)
     {
-        printf("SecretStringColours e DigitatedSequence sono uguali :)");
+        printf("Hai indovinato il codice segreto :)");
     }
     else
     {
-        printf("SecretStringColours e DigitatedSequence non sono uguali :(");
+        printf("Il codice digitato non corrisponde, sei scarso.");
     }
 
 return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+   /*int j;
+    int N=(CodeLenght + 1); //L'idea è quella di usare un unica variabile in modo da avere la dimensione del codice inzziale uguale a quella che verrà visualizzata della sequenza digitata
+    char Seq;
+  //algoritmo per l'output della sequenza digitata dal giocatore in input.
+    printf("Inserisci il codice ");
+    Seq=getchar();
+    while(N<=5)
+    { 
+     DigitatedSequence[N++]=Seq;
+     Seq=getchar();
+    } 
+    for(j=0; j<N; j++){     
+	  putchar(DigitatedSequence[j]);
+    }  */
+
