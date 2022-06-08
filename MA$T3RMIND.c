@@ -49,12 +49,13 @@
 
 	for(i = 0; i < CodeLenght; i++)
     {
-        printf("Confronto n* %d\n",i);
+        printf("Giro della lettera n: %d\n",i);
 		for(j=0; j<CodeLenght; j++) 
         {
+            printf("confronto tra %c e %c \n", SecretStringColours[i], DigitatedSequence[j]);
             if(SecretStringColours[i] == DigitatedSequence[j])
             {
-                printf("\nEsito positivo\n");
+                printf("\nEsito positivo tra %c e %c \n", SecretStringColours[i], DigitatedSequence[j]);
 				ComparingVariable += 1;
                 break;
             }
@@ -74,27 +75,4 @@ return 0;
 
 
 
-
-
-
-
-
-
-
-
-
-   /*int j;
-    int N=(CodeLenght + 1); //L'idea è quella di usare un unica variabile in modo da avere la dimensione del codice inzziale uguale a quella che verrà visualizzata della sequenza digitata
-    char Seq;
-  //algoritmo per l'output della sequenza digitata dal giocatore in input.
-    printf("Inserisci il codice ");
-    Seq=getchar();
-    while(N<=5)
-    { 
-     DigitatedSequence[N++]=Seq;
-     Seq=getchar();
-    } 
-    for(j=0; j<N; j++){     
-	  putchar(DigitatedSequence[j]);
-    }  */
 
