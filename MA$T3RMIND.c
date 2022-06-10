@@ -27,40 +27,35 @@
 	printf("La sequenza segreta e'\n\n");
 
 		for(i=0; i<CodeLenght; i++){  
-        printf("%c\n",SecretStringColours[rand()% (sizeof SecretStringColours /*- 1*/)]); //
+        printf("%c\n",SecretStringColours[rand()%(sizeof SecretStringColours)]); 
         }
 
     printf("INSERISCI LA TUA IPOTESI\n");
 
     char DigitatedSequence[sizeof CodeLenght]; 
     scanf("%s", DigitatedSequence);
-   // getch();
+   
 
-
-
-     //for(i=0; i<CodeLenght; i++)
-    //{
-        //scanf("%c", &SecretStringColours[i]); 
-		//scanf("%c", &DigitatedSequence[i]);
-   // }
-
-
-    int ComparingVariable=0;
+    int ComparingVariable=1;
 
 	for(i = 0; i < CodeLenght; i++)
     {
-        printf("Confronto n* %d\n",i);
+        printf("Giro della lettera n: %d\n",i);
 		for(j=0; j<CodeLenght; j++) 
         {
+            printf("confronto tra %c e %C \n", SecretStringColours[i], DigitatedSequence[j]);
             if(SecretStringColours[i] == DigitatedSequence[j])
             {
-                printf("\nEsito positivo\n");
+                //printf("\nEsito positivo tra %c e %c \n", SecretStringColours[i], DigitatedSequence[j]);
 				ComparingVariable += 1;
-                break;
+                //break;
             }
-        }
+            else {
+                printf("\nEsito negativo tra %c e %c ", SecretStringColours[i], DigitatedSequence[j]);	
+			}
+	    }
     }
-    if(ComparingVariable == CodeLenght + 1)
+    if(ComparingVariable == CodeLenght)
     {
         printf("Hai indovinato il codice segreto :)");
     }
@@ -75,26 +70,4 @@ return 0;
 
 
 
-
-
-
-
-
-
-
-
-   /*int j;
-    int N=(CodeLenght + 1); //L'idea è quella di usare un unica variabile in modo da avere la dimensione del codice inzziale uguale a quella che verrà visualizzata della sequenza digitata
-    char Seq;
-  //algoritmo per l'output della sequenza digitata dal giocatore in input.
-    printf("Inserisci il codice ");
-    Seq=getchar();
-    while(N<=5)
-    { 
-     DigitatedSequence[N++]=Seq;
-     Seq=getchar();
-    } 
-    for(j=0; j<N; j++){     
-	  putchar(DigitatedSequence[j]);
-    }  */
 
