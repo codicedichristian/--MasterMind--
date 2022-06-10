@@ -19,18 +19,20 @@
 	int i;
 	int j;
     int CodeLenght;
+	char SecretString[5];
 	srand(time(NULL)); //Funzione che permette il funzionamento della funzione random 
 
 	printf("Scegli di giocare con un codice da 1 a 5 cifre\n");
 	scanf("%d",&CodeLenght);
-
+    
 	printf("La sequenza segreta e'\n\n");
 
 		for(i=0; i<CodeLenght; i++){  
-        printf("%c\n",SecretStringColours[rand()%(sizeof SecretStringColours)]); 
+        SecretString[i]=SecretStringColours[rand()%(sizeof SecretStringColours)];
         }
-
-    printf("INSERISCI LA TUA IPOTESI\n");
+    printf("%s\n",&SecretString);  //stampo la sequenza random
+    
+	printf("INSERISCI LA TUA IPOTESI\n");
 
     char DigitatedSequence[sizeof CodeLenght]; 
     scanf("%s", DigitatedSequence);
@@ -41,17 +43,17 @@
 	for(i = 0; i < CodeLenght; i++)
     {
         printf("Giro della lettera n: %d\n",i);
-		for(j=0; j<CodeLenght; j++) 
+		for(j=0; j<CodeLenght; j++)
         {
-            printf("confronto tra %c e %C \n", SecretStringColours[i], DigitatedSequence[j]);
-            if(SecretStringColours[i] == DigitatedSequence[j])
+            printf("confronto tra %c e %C \n", SecretString[i], DigitatedSequence[j]);
+            if(SecretString[i] == DigitatedSequence[j]) //FAccio il confronto
             {
-                //printf("\nEsito positivo tra %c e %c \n", SecretStringColours[i], DigitatedSequence[j]);
+                //printf("\nEsito positivo tra %c e %c \n", SecretString[i], DigitatedSequence[j]);
 				ComparingVariable += 1;
                 //break;
             }
             else {
-                printf("\nEsito negativo tra %c e %c ", SecretStringColours[i], DigitatedSequence[j]);	
+                printf("\nEsito negativo tra %c e %c ", SecretString[i], DigitatedSequence[j]);	
 			}
 	    }
     }
