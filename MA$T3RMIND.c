@@ -19,57 +19,61 @@
 	int i;
 	int j;
     int CodeLenght;
-	char SecretString[5];
+	char SecretString[5]; //QUESTO ARRAY INVECE SALVERA' LA STRINGA RANDOM GENERATA
 	srand(time(NULL)); //Funzione che permette il funzionamento della funzione random 
 
 	printf("Scegli di giocare con un codice da 1 a 5 cifre\n");
 	scanf("%d",&CodeLenght);
     
-	printf("La sequenza segreta e'\n\n");
+	printf("\nLa sequenza segreta e'\n\n");
 
 		for(i=0; i<CodeLenght; i++){  
         SecretString[i]=SecretStringColours[rand()%(sizeof SecretStringColours)];
         }
-    printf("%s\n",&SecretString);  //stampo la sequenza random
+    printf("\n%s",&SecretString);  //stampo la sequenza random
     
-	printf("INSERISCI LA TUA IPOTESI\n");
+	printf("\nINSERISCI LA TUA IPOTESI-RICORDA DI INSERIRE IN MAIUSCOLO\n\n");
 
     char DigitatedSequence[sizeof CodeLenght]; 
     scanf("%s", DigitatedSequence);
    
 
-    int ComparingVariable=1;
+    int ComparingVariable=0;
 
 	for(i = 0; i < CodeLenght; i++)
     {
         printf("Giro della lettera n: %d\n",i);
 		for(j=0; j<CodeLenght; j++)
         {
-            printf("confronto tra %c e %C \n", SecretString[i], DigitatedSequence[j]);
-            if(SecretString[i] == DigitatedSequence[j]) //FAccio il confronto
+            printf("\nconfronto tra %c e %C \n", SecretString[i], DigitatedSequence[j]);
+            if(SecretString[i] == DigitatedSequence[j]) //FACCIO IL CONFRONTO
             {
-                //printf("\nEsito positivo tra %c e %c \n", SecretString[i], DigitatedSequence[j]);
+                printf("Esito positivo tra %c e %c \n", SecretString[i], DigitatedSequence[j]);
 				ComparingVariable += 1;
+				printf("\nIl valore e'%d\n",ComparingVariable);//METTO LA STAMPA PER AVERE SOTT'OCCHIO DOVE LA VARIABILE ASSUME IL VALORE E PERCHE'
                 //break;
             }
             else {
-                printf("\nEsito negativo tra %c e %c ", SecretString[i], DigitatedSequence[j]);	
+                printf("Esito negativo tra %c e %c\n ", SecretString[i], DigitatedSequence[j]);	
+                printf("\nIl valore e'%d\n",ComparingVariable);//METTO LA STAMPA PER AVERE SOTT'OCCHIO DOVE LA VARIABILE ASSUME IL VALORE E PERCHE'
 			}
 	    }
     }
-    if(ComparingVariable == CodeLenght)
+    printf("\nIl valore finale assunto e'%d\n",ComparingVariable); //QUESTA STAMPA E' PER CAPIRE CHE VALORE ASSUME COMPARING VARIABLE. A QUANTO PARE IL BUG E' NEL VALORE CHE DOVREBBE O MENO ASSUMERE QUESTA VARIABILE.
+	if(ComparingVariable == CodeLenght)
     {
-        printf("Hai indovinato il codice segreto :)");
+        printf("\nHai indovinato il codice segreto :)");
     }
     else
     {
-        printf("Il codice digitato non corrisponde, sei scarso.");
+        printf("\nIl codice digitato non corrisponde, sei scarso.");
     }
 
 return 0;
 }
 
-
+//AGGIORNAMNETI: IL PROGRAMMA SEMBRA FUNZIONARE MA BISOGNA SISTEMARE ALCUNI BUG. RESTA DA CREARE DEI CONTATORI CHE GIOCANDO CON I CONTI STABILIRANNO L'ESISTENZA O MENO E LA QUANTITA'
+// DEI PIOLI NERI E BIANCHI PER AVERE UNA LINEA GUIDA NELLO SVOLGIMENTO DEL GIOCO.
 
 
 
