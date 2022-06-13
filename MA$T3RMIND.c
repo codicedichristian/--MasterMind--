@@ -19,7 +19,10 @@
 	int i;
 	int j;
     int CodeLenght;
-	char SecretString[5]; //QUESTO ARRAY INVECE SALVERA' LA STRINGA RANDOM GENERATA
+    // inizializzato con '\0' -> carattere che indica fine di stringa e quindi pulisce l'array, pronto per l'uso
+	char SecretString[5] = {'\0'}; //QUESTO ARRAY INVECE SALVERA' LA STRINGA RANDOM GENERATA 
+	
+	
 	srand(time(NULL)); //Funzione che permette il funzionamento della funzione random 
 
 	printf("Scegli di giocare con un codice da 1 a 5 cifre\n");
@@ -30,36 +33,38 @@
 		for(i=0; i<CodeLenght; i++){  
         SecretString[i]=SecretStringColours[rand()%(sizeof SecretStringColours)];
         }
-    printf("\n%s",&SecretString);  //stampo la sequenza random
+    printf("\n%s", SecretString);  //stampo la sequenza random
     
 	printf("\nINSERISCI LA TUA IPOTESI-RICORDA DI INSERIRE IN MAIUSCOLO\n\n");
 
-    char DigitatedSequence[sizeof CodeLenght]; 
+    char DigitatedSequence[sizeof CodeLenght] = {'\0'};
+  
     scanf("%s", DigitatedSequence);
    
-
-    int ComparingVariable=0;
-
+    int ComparingVariable = 0;
+    
 	for(i = 0; i < CodeLenght; i++)
-    {
-        printf("Giro della lettera n: %d\n",i);
+    {   
+       
+        //ho eliminato log inutili
 		for(j=0; j<CodeLenght; j++)
         {
-            printf("\nconfronto tra %c e %C \n", SecretString[i], DigitatedSequence[j]);
+            
+            printf("\nconfronto tra %c e %c \n", SecretString[i], DigitatedSequence[j]);
             if(SecretString[i] == DigitatedSequence[j]) //FACCIO IL CONFRONTO
             {
                 printf("Esito positivo tra %c e %c \n", SecretString[i], DigitatedSequence[j]);
 				ComparingVariable += 1;
-				printf("\nIl valore e'%d\n",ComparingVariable);//METTO LA STAMPA PER AVERE SOTT'OCCHIO DOVE LA VARIABILE ASSUME IL VALORE E PERCHE'
-                //break;
+			//	printf("\nIl valore di ComparingVariable e'%d\n",ComparingVariable);//METTO LA STAMPA PER AVERE SOTT'OCCHIO DOVE LA VARIABILE ASSUME IL VALORE E PERCHE'
+                //break; // break termina il loop -> occhio! 
             }
             else {
                 printf("Esito negativo tra %c e %c\n ", SecretString[i], DigitatedSequence[j]);	
-                printf("\nIl valore e'%d\n",ComparingVariable);//METTO LA STAMPA PER AVERE SOTT'OCCHIO DOVE LA VARIABILE ASSUME IL VALORE E PERCHE'
+                //printf("\nIl valore e'%d\n",ComparingVariable);//METTO LA STAMPA PER AVERE SOTT'OCCHIO DOVE LA VARIABILE ASSUME IL VALORE E PERCHE'
 			}
 	    }
     }
-    printf("\nIl valore finale assunto e'%d\n",ComparingVariable); //QUESTA STAMPA E' PER CAPIRE CHE VALORE ASSUME COMPARING VARIABLE. A QUANTO PARE IL BUG E' NEL VALORE CHE DOVREBBE O MENO ASSUMERE QUESTA VARIABILE.
+    printf("\nIl valore finale assunto di ComparingVariable e'%d\n",ComparingVariable); //QUESTA STAMPA E' PER CAPIRE CHE VALORE ASSUME COMPARING VARIABLE. A QUANTO PARE IL BUG E' NEL VALORE CHE DOVREBBE O MENO ASSUMERE QUESTA VARIABILE.
 	if(ComparingVariable == CodeLenght)
     {
         printf("\nHai indovinato il codice segreto :)");
@@ -74,6 +79,5 @@ return 0;
 
 //AGGIORNAMNETI: IL PROGRAMMA SEMBRA FUNZIONARE MA BISOGNA SISTEMARE ALCUNI BUG. RESTA DA CREARE DEI CONTATORI CHE GIOCANDO CON I CONTI STABILIRANNO L'ESISTENZA O MENO E LA QUANTITA'
 // DEI PIOLI NERI E BIANCHI PER AVERE UNA LINEA GUIDA NELLO SVOLGIMENTO DEL GIOCO.
-
 
 
